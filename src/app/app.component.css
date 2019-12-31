@@ -1,0 +1,22 @@
+.navbar {
+  justify-content: space-between;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  background-color: #e91e63;
+  position: fixed;
+  height: 60px;
+}
+
+.material-icons{
+  font-size: 50px;
+  padding-top: 5px;
+}
+
+span{
+  position: absolute;
+  padding-left: 1rem;
+  padding-top: 12px;
+}
+
+a{
+  color: white;
+}

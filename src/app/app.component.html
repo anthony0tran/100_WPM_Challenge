@@ -1,1 +1,10 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>
+    <a (mouseenter)="enterKbIcon($event)" (mouseleave)="leaveKbIcon($event)" href="/" #kbIcon><i class="material-icons">keyboard</i></a>
+    <span><button mat-button>About</button></span>
+  </div>
+  <div>
+    <button mat-stroked-button>Register here!</button>
+  </div>
+</mat-toolbar>
 <app-user></app-user>

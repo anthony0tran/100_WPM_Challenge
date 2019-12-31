@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
+import {MatButtonModule, MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {UserService} from './services/user.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
