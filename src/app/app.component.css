@@ -4,6 +4,7 @@
   background-color: #e91e63;
   position: fixed;
   height: 60px;
+  z-index: 10;
 }
 
 .material-icons{

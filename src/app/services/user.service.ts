@@ -9,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
   constructor(private httpclient: HttpClient) { }
 
-  getUser(): Observable<any> {
-    return this.httpclient.get('https://data.typeracer.com/users?id=tr:4n2h0ny&universe=play');
+  getUser(username: string): Observable<any> {
+    return this.httpclient.get('https://data.typeracer.com/users?id=tr:' + username + '&universe=play');
   }
 }
