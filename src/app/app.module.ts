@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
-import {MatButtonModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatDividerModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {MatCardModule} from '@angular/material';
 
 @NgModule({
@@ -16,15 +16,17 @@ import {MatCardModule} from '@angular/material';
     AppComponent,
     UserComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatCardModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule
+  ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })

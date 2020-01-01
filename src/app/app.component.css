@@ -12,10 +12,16 @@
   padding-top: 5px;
 }
 
-span{
+.navbarSpan{
   position: absolute;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   padding-top: 12px;
+}
+
+.navbarText {
+  display: inline;
+  font-size: small;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 a{

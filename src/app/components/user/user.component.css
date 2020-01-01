@@ -35,3 +35,17 @@ H1 {
 .userCardsContainer {
   justify-content: center;
 }
+
+.userCardContent {
+  padding-top: 10px;
+  display: flex;
+  margin-bottom: 0px;
+}
+
+.userCardStatsDescription {
+  font-weight: lighter;
+}
+
+.userCardStats {
+  padding-left: 10px;
+}

@@ -11,8 +11,24 @@
       <mat-card-title>{{user.id | slice:3:user.id.length}}</mat-card-title>
       <mat-card-subtitle>{{user.tstats.recentAvgWpm | number}} WPM</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
-      content
+    <mat-divider></mat-divider>
+    <mat-card-content class="userCardContent">
+      <div class="userCardStatsDescription">
+        <p>Full Average</p>
+        <p>Best Race</p>
+        <p>Races Completed</p>
+        <p>Races Won</p>
+        <p>Win Ratio</p>
+        <p>Skill Level</p>
+      </div>
+      <div class="userCardStats">
+        <p>{{user.tstats.wpm | number}} WPM</p>
+        <p>{{user.tstats.bestGameWpm | number}} WPM</p>
+        <p>{{user.tstats.cg}}</p>
+        <p>{{user.tstats.gamesWon}}</p>
+        <p>{{user.tstats.gamesWon / user.tstats.cg * 100 | number:'1.0-0'}}%</p>
+        <p>{{getSkillLevel(user.tstats.level)}}</p>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>FULL STATS</button>

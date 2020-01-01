@@ -33,4 +33,13 @@ export class UserComponent implements OnInit {
     const urlString = 'https://data.typeracer.com/public/images/avatars/' + avatar;
     return this.sanitizer.bypassSecurityTrustStyle('url(' + urlString + ')');
   }
+
+  getSkillLevel(level: string): string {
+    const levels: string[] = ['Beginner', 'Intermediate', 'Average', 'Pro', 'Typemaster', 'MegaRacer'];
+
+    // slice returns the selected string. e.g. "L5" <= sliced is "5".
+    // splice returns the removed part "L5" <= spliced is "L".
+    const positionNumber: number = +level.slice(1, level.length) - 1;
+    return levels[positionNumber];
+  }
 }
