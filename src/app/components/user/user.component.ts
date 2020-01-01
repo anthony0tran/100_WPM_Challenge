@@ -22,9 +22,23 @@ export class UserComponent implements OnInit {
     for (const userName of this.userNames) {
       this.userService.getUser(userName).subscribe(
         data => {
-          this.usersList.push(data);
+            this.insertInArray(data);
         }
       );
+    }
+  }
+
+  // Insert on the right index based on the recent Average WPM.
+  insertInArray(data: User) {
+    if (this.usersList.length === 0) {
+      this.usersList.push(data);
+    } else {
+      for (let i = 0; i <= this.usersList.length; i++) {
+        if (this.usersList[i].tstats.recentAvgWpm < data.tstats.recentAvgWpm) {
+          this.usersList.splice(i, 0, data);
+          break;
+        }
+      }
     }
   }
 
