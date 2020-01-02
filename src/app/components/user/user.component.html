@@ -1,6 +1,6 @@
 <div class="main-header">
   <h1>Current #1:
-<!--    {{usersList[0].name}}-->
+    {{checkIfUserIdExists(usersList[0]) | slice:3:checkIfUserIdExists(usersList[0]).length}}
   </h1>
 </div>
 
@@ -37,9 +37,20 @@
   </mat-card>
 </div>
 
-<!--TODO: remove filler div-->
-<div class="filler">
+<!--TODO: implement the users progress bar based on the recent average WPM.-->
+<!--<div class="userProgressBar">-->
 
-</div>
+<!--</div>-->
+
+
+  <div class="chartsContainer">
+    <mat-card class="recentWpmCard">
+      <canvas id="canvas">{{ chart }}</canvas>
+    </mat-card>
+<!--    TODO: make chart-->
+<!--    <mat-card class="accuracyCard">-->
+<!--      place chart here-->
+<!--    </mat-card>-->
+  </div>
 
 

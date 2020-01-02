@@ -5,11 +5,6 @@
   padding-top: 60px;
 }
 
-/*TODO: Remove filler*/
-.filler {
-  height: 110vh;
-}
-
 H1 {
   padding-left: 20px;
   color: white;
@@ -20,6 +15,7 @@ H1 {
   max-width: 300px;
   margin-top: 20px;
   margin-left: 20px;
+  margin-bottom: 20px;
   display: inline-block;
 }
 
@@ -48,4 +44,22 @@ H1 {
 
 .userCardStats {
   padding-left: 10px;
+}
+
+/*TODO: make progress bar*/
+.userProgressBar {
+  height: 150px;
+  background-color: #424242;
+}
+
+.chartsContainer {
+}
+
+.recentWpmCard {
+  margin: 20px;
+  max-width: 900px;
+}
+
+.accuracyCard {
+  float: left;
 }

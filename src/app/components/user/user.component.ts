@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/User';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-user',
@@ -17,15 +18,69 @@ export class UserComponent implements OnInit {
   // TODO: Get usernames from database instead of hardcoded.
   userNames: string[] = ['4n2h0ny', 'arenasnow', 'florentine'];
   usersList: User[] = [];
+  chart: Chart = [];
 
   ngOnInit() {
     for (const userName of this.userNames) {
       this.userService.getUser(userName).subscribe(
         data => {
             this.insertInArray(data);
+            const newDataSet = {
+              label: data.id.slice(3, data.id.length),
+              backgroundColor: this.getChartColor(this.chart),
+              borderColor: this.getChartColor(this.chart),
+              data: data.tstats.recentScores,
+              fill: false,
+            };
+
+            this.chart.data.datasets.push(newDataSet);
+            this.chart.update();
         }
       );
     }
+
+    this.chart = new Chart('canvas', {
+      type: 'line',
+      data: {
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        datasets: [],
+      },
+      options: {
+        responsive: true,
+        title: {
+          display: true,
+          text: 'Last 10 matches',
+          fontColor: 'white',
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
+        scales: {
+          xAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Matches',
+              fontColor: 'white',
+            }
+          }],
+          yAxes: [{
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'WPM',
+              fontColor: 'white',
+            },
+          }]
+        }
+      }
+    });
+
   }
 
   // Insert on the right index based on the recent Average WPM.
@@ -34,6 +89,7 @@ export class UserComponent implements OnInit {
       this.usersList.push(data);
     } else {
       for (let i = 0; i <= this.usersList.length; i++) {
+        // console.log(data.id);
         if (this.usersList[i].tstats.recentAvgWpm < data.tstats.recentAvgWpm) {
           this.usersList.splice(i, 0, data);
           break;
@@ -55,5 +111,33 @@ export class UserComponent implements OnInit {
     // splice returns the removed part "L5" <= spliced is "L".
     const positionNumber: number = +level.slice(1, level.length) - 1;
     return levels[positionNumber];
+  }
+
+  checkIfUserIdExists(user: User): string {
+    if (typeof user !== 'undefined') {
+      return user.id;
+    } else {
+      return '';
+    }
+  }
+
+  getChartColor(chart: Chart): string {
+    const colors = ['#4dc9f6', '#f67019', '#f53794', '#537bc4', '#acc236', '#166a8f', '#00a950', '#58595b', '#8549ba'];
+    let datasetCounter = 0;
+
+    for (const dataset of chart.data.datasets) {
+      datasetCounter++;
+    }
+
+    if (datasetCounter > 9) {
+      while (datasetCounter > 9) {
+        datasetCounter -= 9;
+      }
+      return colors[datasetCounter];
+    } else if (datasetCounter < 9 && datasetCounter !== 0) {
+      return colors[datasetCounter];
+    } else {
+      return colors[datasetCounter];
+    }
   }
 }
