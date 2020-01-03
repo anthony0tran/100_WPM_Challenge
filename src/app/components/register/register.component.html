@@ -1,0 +1,30 @@
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step>
+    <ng-template matStepLabel>Create a typeracer account</ng-template>
+    <p>Please create an account at <a href="https://play.typeracer.com/" style="color: white">Typeracer</a>. Click next if you already have an account.</p>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="usernameFormGroup">
+    <form [formGroup]="usernameFormGroup">
+      <ng-template matStepLabel>Insert username</ng-template>
+      <p>What is your typeracer username?</p>
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="username" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Thank you!</ng-template>
+    Thank you for registering, {{usernameFormGroup.value.username}}! This page will refresh after you click the finish button.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="reload()">Finish</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

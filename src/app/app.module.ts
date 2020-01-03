@@ -8,14 +8,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
-import {MatButtonModule, MatDividerModule, MatListModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatListModule,
+  MatStepperModule,
+  MatToolbarModule,
+  MatInput,
+  MatInputModule
+} from '@angular/material';
 import {MatCardModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material';
+import { RegisterComponent } from './components/register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    RegisterComponent
   ],
+  entryComponents: [RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,7 +39,12 @@ import {MatCardModule} from '@angular/material';
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

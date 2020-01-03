@@ -1,4 +1,7 @@
 import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {RegisterComponent} from './components/register/register.component';
+import {UserComponent} from './components/user/user.component';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +11,18 @@ import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 export class AppComponent {
   title = 'The Road To 100 WPM';
 
-  constructor(private renderer: Renderer2) {
+  constructor(private renderer: Renderer2, private dialog: MatDialog) {
   }
 
   @ViewChild('kbIcon', null) kb: ElementRef;
 
   // These functions are essentially hover for the keyboard icon.
   // They change to color on hover.
-  enterKbIcon() {
+  enterKbIcon($event: MouseEvent) {
     this.renderer.setStyle(this.kb.nativeElement, 'color', this.generateRandomHexColor());
   }
 
-  leaveKbIcon() {
+  leaveKbIcon($event: MouseEvent) {
     this.renderer.setStyle(this.kb.nativeElement, 'color', 'white');
   }
 
@@ -32,6 +35,10 @@ export class AppComponent {
     }
 
     return color;
+  }
+
+  openRegisterDialog(): void {
+    const dialogRef = this.dialog.open(RegisterComponent, {});
   }
 }
 

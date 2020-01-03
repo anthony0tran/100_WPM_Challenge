@@ -97,7 +97,6 @@ export class UserComponent implements OnInit {
         if (this.usersList[i].tstats.recentAvgWpm < data.tstats.recentAvgWpm) {
           // Insert 'data: User' on index i.
           this.usersList.splice(i, 0, data);
-          console.log(this.usersList);
           return;
         }
       }
