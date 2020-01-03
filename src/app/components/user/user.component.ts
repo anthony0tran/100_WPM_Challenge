@@ -24,8 +24,11 @@ export class UserComponent implements OnInit {
     for (const userName of this.userNames) {
       this.userService.getUser(userName).subscribe(
         data => {
+          if (typeof data !== 'undefined') {
             this.insertInArray(data);
-            const newDataSet = {
+          }
+
+          const newDataSet = {
               label: data.id.slice(3, data.id.length),
               backgroundColor: this.getChartColor(this.chart),
               borderColor: this.getChartColor(this.chart),
@@ -33,8 +36,8 @@ export class UserComponent implements OnInit {
               fill: false,
             };
 
-            this.chart.data.datasets.push(newDataSet);
-            this.chart.update();
+          this.chart.data.datasets.push(newDataSet);
+          this.chart.update();
         }
       );
     }
@@ -85,16 +88,22 @@ export class UserComponent implements OnInit {
 
   // Insert on the right index based on the recent Average WPM.
   insertInArray(data: User) {
+    // Just push the user in the array if the userList array is empty.
     if (this.usersList.length === 0) {
       this.usersList.push(data);
     } else {
-      for (let i = 0; i <= this.usersList.length; i++) {
-        // console.log(data.id);
+      // Loop till the 'data: User' is faster than the user on index i.
+      for (let i = 0; i < this.usersList.length; i++) {
         if (this.usersList[i].tstats.recentAvgWpm < data.tstats.recentAvgWpm) {
+          // Insert 'data: User' on index i.
           this.usersList.splice(i, 0, data);
-          break;
+          console.log(this.usersList);
+          return;
         }
       }
+
+      // Push 'data: User' at the end of the array if none of the users in the array are slower.
+      this.usersList.push(data);
     }
   }
 
