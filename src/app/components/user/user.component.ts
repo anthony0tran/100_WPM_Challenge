@@ -3,6 +3,8 @@ import {UserService} from '../../services/user.service';
 import {User} from '../../models/User';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Chart} from 'chart.js';
+import {CommonService} from '../../services/common.service';
+import {Username} from '../../models/Username';
 
 @Component({
   selector: 'app-user',
@@ -13,15 +15,20 @@ export class UserComponent implements OnInit {
   /**
    * Pass the service through the constructor
    */
-  constructor(private userService: UserService, private sanitizer: DomSanitizer) { }
+  constructor(private userService: UserService, private sanitizer: DomSanitizer, private common: CommonService) { }
 
   // TODO: Get usernames from database instead of hardcoded.
-  userNames: string[] = ['4n2h0ny', 'arenasnow', 'florentine'];
+  userNames: string[] = ['4n2h0ny'];
   usersList: User[] = [];
   chart: Chart = [];
 
   ngOnInit() {
+    // TODO: getting usernames from database works but the for loop after this one doesn't work...
+    // this.userNames = this.getUsernameFromDb();
+    // console.log(this.userNames);
+
     for (const userName of this.userNames) {
+      console.log('working on ' + userName);
       this.userService.getUser(userName).subscribe(
         data => {
           if (typeof data !== 'undefined') {
@@ -83,7 +90,18 @@ export class UserComponent implements OnInit {
         }
       }
     });
+  }
 
+  getUsernameFromDb() {
+    const usernameArray: string[] = [];
+
+    this.common.getUser().toPromise().then(data => {
+      for (const username of data) {
+        usernameArray.push(username.username);
+      }
+    });
+
+    return usernameArray;
   }
 
   // Insert on the right index based on the recent Average WPM.

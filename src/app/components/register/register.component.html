@@ -15,7 +15,7 @@
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="saveUserFromForm()">Next</button>
       </div>
     </form>
   </mat-step>
@@ -23,7 +23,6 @@
     <ng-template matStepLabel>Thank you!</ng-template>
     Thank you for registering, {{usernameFormGroup.value.username}}! This page will refresh after you click the finish button.
     <div>
-      <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="reload()">Finish</button>
     </div>
   </mat-step>
