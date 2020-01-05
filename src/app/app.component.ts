@@ -2,7 +2,7 @@ import {Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {RegisterComponent} from './components/register/register.component';
 import {UserComponent} from './components/user/user.component';
-
+import {octicons} from '@primer/octicons';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,7 +38,7 @@ export class AppComponent {
   }
 
   openRegisterDialog(): void {
-    const dialogRef = this.dialog.open(RegisterComponent, {});
+    this.dialog.open(RegisterComponent, {});
   }
 }
 

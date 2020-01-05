@@ -16,20 +16,23 @@ import {
   MatStepperModule,
   MatToolbarModule,
   MatInput,
-  MatInputModule
+  MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 import {MatCardModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ShareComponent } from './components/share/share.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShareComponent
   ],
-  entryComponents: [RegisterComponent],
+  entryComponents: [RegisterComponent, ShareComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -44,7 +47,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatStepperModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

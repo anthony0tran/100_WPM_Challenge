@@ -27,3 +27,20 @@
 a{
   color: white;
 }
+
+.footer {
+  background-color: #e91e63;
+  font-size: small;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  justify-content: space-between;
+}
+
+.octicon {
+  display: inline-block;
+  vertical-align: bottom;
+  fill: currentColor;
+}
+
+.octicon:hover {
+  fill: #a21b4e;
+}

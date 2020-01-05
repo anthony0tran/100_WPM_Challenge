@@ -1,10 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/User';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Chart} from 'chart.js';
 import {CommonService} from '../../services/common.service';
 import {Username} from '../../models/Username';
+import {RegisterComponent} from '../register/register.component';
+import {MatDialog} from '@angular/material/dialog';
+import {ShareComponent} from '../share/share.component';
 
 @Component({
   selector: 'app-user',
@@ -15,12 +18,13 @@ export class UserComponent implements OnInit {
   /**
    * Pass the service through the constructor
    */
-  constructor(private userService: UserService, private sanitizer: DomSanitizer, private common: CommonService) { }
+  constructor(private userService: UserService, private sanitizer: DomSanitizer, private common: CommonService,
+              private dialog: MatDialog) { }
 
   // TODO: Get usernames from database instead of hardcoded.
-  userNames: string[] = ['4n2h0ny'];
+  userNames: string[] = ['4n2h0ny', 'yung_typo'];
   usersList: User[] = [];
-  chart: Chart = [];
+  recentScoresChart: Chart = [];
 
   ngOnInit() {
     // TODO: getting usernames from database works but the for loop after this one doesn't work...
@@ -28,28 +32,25 @@ export class UserComponent implements OnInit {
     // console.log(this.userNames);
 
     for (const userName of this.userNames) {
-      console.log('working on ' + userName);
-      this.userService.getUser(userName).subscribe(
-        data => {
-          if (typeof data !== 'undefined') {
-            this.insertInArray(data);
-          }
-
-          const newDataSet = {
-              label: data.id.slice(3, data.id.length),
-              backgroundColor: this.getChartColor(this.chart),
-              borderColor: this.getChartColor(this.chart),
-              data: data.tstats.recentScores,
-              fill: false,
-            };
-
-          this.chart.data.datasets.push(newDataSet);
-          this.chart.update();
+      this.userService.getUser(userName).toPromise().then(data => {
+        if (typeof data !== 'undefined') {
+          this.insertInArray(data);
         }
-      );
+
+        const newDataSet = {
+          label: data.id.slice(3, data.id.length),
+          backgroundColor: this.getChartColor(this.recentScoresChart),
+          borderColor: this.getChartColor(this.recentScoresChart),
+          data: data.tstats.recentScores,
+          fill: false,
+        };
+
+        this.recentScoresChart.data.datasets.push(newDataSet);
+        this.recentScoresChart.update();
+      });
     }
 
-    this.chart = new Chart('canvas', {
+    this.recentScoresChart = new Chart('canvas', {
       type: 'line',
       data: {
         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -92,6 +93,10 @@ export class UserComponent implements OnInit {
     });
   }
 
+  focusRecentScoresChart(el: HTMLElement) {
+    el.scrollIntoView({behavior: 'smooth'});
+  }
+
   getUsernameFromDb() {
     const usernameArray: string[] = [];
 
@@ -126,7 +131,12 @@ export class UserComponent implements OnInit {
 
   // Bypass for the avatar image is needed. The browser will otherwise throw a XSS vulnerability warning .
   getAvatarImage(avatar) {
-    const urlString = 'https://data.typeracer.com/public/images/avatars/' + avatar;
+    let urlString = '';
+    if (avatar !== null) {
+      urlString = 'https://data.typeracer.com/public/images/avatars/' + avatar;
+    } else {
+      urlString = 'https://vignette.wikia.nocookie.net/typeracer/images/2/27/TypeRacer_game.png/revision/latest?cb=20180923201501';
+    }
     return this.sanitizer.bypassSecurityTrustStyle('url(' + urlString + ')');
   }
 
@@ -165,5 +175,12 @@ export class UserComponent implements OnInit {
     } else {
       return colors[datasetCounter];
     }
+  }
+
+  showTyperacerBadge(username: string) {
+    username = username.slice(3, username.length);
+    this.dialog.open(ShareComponent, {
+      data: username
+    });
   }
 }
