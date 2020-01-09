@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
               private dialog: MatDialog) { }
 
   // TODO: Get usernames from database instead of hardcoded.
-  userNames: string[] = ['4n2h0ny', 'yung_typo', 'zoeko5', 'min_hd'];
+  userNames: string[] = ['4n2h0ny', 'yung_typo', 'zoeko5', 'min_hd', 'shekster420'];
   usersList: User[] = [];
   recentScoresChart: Chart = [];
 
