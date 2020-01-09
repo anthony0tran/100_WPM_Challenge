@@ -58,6 +58,7 @@ export class UserComponent implements OnInit {
       },
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         title: {
           display: true,
           text: 'Last 10 matches',
