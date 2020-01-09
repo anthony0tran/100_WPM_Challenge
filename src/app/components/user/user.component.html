@@ -5,10 +5,11 @@
 </div>
 
 <div class="userCardsContainer">
-  <mat-card *ngFor="let user of usersList" class="userCard">
+  <mat-card *ngFor="let user of usersList; index as i" class="userCard">
       <mat-card-header >
         <div mat-card-avatar class="userCard-header-image" [style.background-image]="getAvatarImage(user.avatar)"></div>
-        <mat-card-title>{{user.id | slice:3:user.id.length}}</mat-card-title>
+        <mat-card-title>{{user.id| slice:3:user.id.length}}</mat-card-title>
+        <p id="positionParagraph">#{{i+1}}</p>
         <mat-card-subtitle>{{user.tstats.recentAvgWpm | number}} WPM</mat-card-subtitle>
       </mat-card-header>
       <mat-divider></mat-divider>

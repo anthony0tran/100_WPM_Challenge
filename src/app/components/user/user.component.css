@@ -36,6 +36,7 @@ H1 {
   padding-top: 10px;
   display: flex;
   margin-bottom: 0px;
+  justify-content: space-evenly;
 }
 
 .userCardStatsDescription {
@@ -62,4 +63,10 @@ H1 {
 
 .accuracyCard {
   float: left;
+}
+
+#positionParagraph {
+  padding-left: 10px;
+  font-weight: bolder;
+  margin-top: 15px;
 }
