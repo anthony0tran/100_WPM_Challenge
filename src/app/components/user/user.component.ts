@@ -150,11 +150,17 @@ export class UserComponent implements OnInit {
     return levels[positionNumber];
   }
 
-  checkIfUserIdExists(user: User): string {
+  // Did this to prevent errors in the #1 banner
+  checkIfUserIdExists(user: User) {
     if (typeof user !== 'undefined') {
-      return user.id;
+      return user;
     } else {
-      return '';
+      return {
+        id: '',
+        tstats: {
+          recentAvgWpm: 0
+        }
+      };
     }
   }
 

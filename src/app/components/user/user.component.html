@@ -1,6 +1,6 @@
 <div class="main-header">
   <h1>Current #1:
-    {{checkIfUserIdExists(usersList[0]) | slice:3:checkIfUserIdExists(usersList[0]).length}}
+    {{checkIfUserIdExists(usersList[0]).id | slice:3:checkIfUserIdExists(usersList[0]).id.length}} - {{checkIfUserIdExists(usersList[0]).tstats.recentAvgWpm | number}} WPM
   </h1>
 </div>
 
