@@ -9,7 +9,8 @@
       <mat-card-header >
         <div mat-card-avatar class="userCard-header-image" [style.background-image]="getAvatarImage(user.avatar)"></div>
         <mat-card-title>{{user.id| slice:3:user.id.length}}</mat-card-title>
-        <p id="positionParagraph">#{{i+1}}</p>
+<!--        <p id="positionParagraph">#{{i+1}}</p>-->
+        <p id="positionParagraph">{{user.tstats.recentAvgWpm !== 0 ? '#' + (i+1).toString() : ''}}</p>
         <mat-card-subtitle>{{user.tstats.recentAvgWpm | number}} WPM</mat-card-subtitle>
       </mat-card-header>
       <mat-divider></mat-divider>
