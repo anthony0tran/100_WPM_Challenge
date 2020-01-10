@@ -54,8 +54,7 @@ H1 {
 }
 
 .chartsContainer {
-  margin-bottom: 20px;
-  margin-left: 20px;
+  margin: 20px;
 }
 
 .recentWpmCard {
@@ -63,7 +62,7 @@ H1 {
   /*max-width: 900px;*/
   position: relative;
   height: 50vh;
-  width: 80vw;
+  max-width: 1000px;
 }
 
 .accuracyCard {
