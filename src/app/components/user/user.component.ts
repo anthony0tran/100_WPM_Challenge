@@ -50,6 +50,10 @@ export class UserComponent implements OnInit {
       });
     }
 
+    this.initRecentWpmChart();
+  }
+
+  initRecentWpmChart() {
     this.recentScoresChart = new Chart('canvas', {
       type: 'line',
       data: {
@@ -98,6 +102,7 @@ export class UserComponent implements OnInit {
     el.scrollIntoView({behavior: 'smooth'});
   }
 
+  // No longer needed because of firebase
   getUsernameFromDb() {
     const usernameArray: string[] = [];
 
@@ -150,7 +155,7 @@ export class UserComponent implements OnInit {
     return levels[positionNumber];
   }
 
-  // Did this to prevent errors in the #1 banner
+  // Did this to prevent errors in the #1 banner. (Because function is called before users are loaded in)
   checkIfUserIdExists(user: User) {
     if (typeof user !== 'undefined') {
       return user;
@@ -164,6 +169,7 @@ export class UserComponent implements OnInit {
     }
   }
 
+  // Returns a string of a random hex color.
   getChartColor(chart: Chart): string {
     const colors = ['#4dc9f6', '#f67019', '#f53794', '#537bc4', '#acc236', '#166a8f', '#00a950', '#58595b', '#8549ba'];
     let datasetCounter = 0;
@@ -184,6 +190,7 @@ export class UserComponent implements OnInit {
     }
   }
 
+  // Pass the username to the shareComponent
   showTyperacerBadge(username: string) {
     username = username.slice(3, username.length);
     this.dialog.open(ShareComponent, {

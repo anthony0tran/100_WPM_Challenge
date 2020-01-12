@@ -8,6 +8,7 @@ import {MAT_DIALOG_DATA} from '@angular/material';
 })
 export class ShareComponent implements OnInit {
 
+  // Pass the data from the dialog through the constructor.
   constructor(@Inject(MAT_DIALOG_DATA) public data: string) {}
   username = this.data;
 
