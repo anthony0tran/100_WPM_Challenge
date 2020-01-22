@@ -9,15 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {UserService} from './services/user.service';
 import {
-  MatButtonModule,
-  MatDividerModule,
-  MatFormFieldModule,
-  MatListModule,
-  MatStepperModule,
-  MatToolbarModule,
-  MatInput,
-  MatInputModule,
-  MatSnackBarModule
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatListModule,
+    MatStepperModule,
+    MatToolbarModule,
+    MatInput,
+    MatInputModule,
+    MatSnackBarModule, MatTooltipModule
 } from '@angular/material';
 import {MatCardModule} from '@angular/material';
 import {MatDialogModule} from '@angular/material';
@@ -33,23 +33,24 @@ import { ShareComponent } from './components/share/share.component';
     ShareComponent
   ],
   entryComponents: [RegisterComponent, ShareComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDividerModule,
-    MatListModule,
-    MatDialogModule,
-    MatStepperModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDividerModule,
+        MatListModule,
+        MatDialogModule,
+        MatStepperModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSnackBarModule,
+        MatTooltipModule
+    ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
