@@ -105,10 +105,9 @@ export class UserComponent implements OnInit {
 
   focusOnUserStat(user: User) {
     for (const dataSet of this.recentScoresChart.data.datasets) {
-      if (dataSet.label !== user.id.slice(3, user.id.length)) {
-        dataSet.hidden = true;
-      }
+      dataSet.hidden = dataSet.label !== user.id.slice(3, user.id.length);
     }
+    this.recentScoresChart.update();
   }
 
   // No longer needed because of firebase
