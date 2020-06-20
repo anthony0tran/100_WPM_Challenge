@@ -98,8 +98,17 @@ export class UserComponent implements OnInit {
     });
   }
 
-  focusRecentScoresChart(el: HTMLElement) {
+  focusRecentScoresChart(el: HTMLElement, user: User) {
     el.scrollIntoView({behavior: 'smooth'});
+    this.focusOnUserStat(user);
+  }
+
+  focusOnUserStat(user: User) {
+    for (const dataSet of this.recentScoresChart.data.datasets) {
+      if (dataSet.label !== user.id.slice(3, user.id.length)) {
+        dataSet.hidden = true;
+      }
+    }
   }
 
   // No longer needed because of firebase
