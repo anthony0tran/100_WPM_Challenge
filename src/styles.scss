@@ -1,0 +1,9 @@
+// Import Foundation for Sites
+// See https://foundation.zurb.com/sites/docs/sass.html for detailed info.
+@import '~foundation-sites/scss/foundation';
+@include foundation-everything;
+
+// Change foundation-everything to the specific modules. This decreases the package size.
+
+// Import Angular ngx-foundation Framework Added Styles
+@import "~ngx-foundation/assets/scss/main";
