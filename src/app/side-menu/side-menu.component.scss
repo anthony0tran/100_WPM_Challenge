@@ -1,5 +1,25 @@
 .sideMenu {
-  width: 200px;
+  width: 0;
   height: 100vh;
   background-color: rgba(255, 0, 0, 0.6);
+}
+
+.collapsible {
+  color: white;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+
+.menuContent {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+}
+
+.active .menuContent {
+  width: 250px;
+  transition: width 0.3s ease-in-out;
 }

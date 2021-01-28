@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~11.1.0",
     "@angular/platform-browser-dynamic": "~11.1.0",
     "@angular/router": "~11.1.0",
+    "@fortawesome/angular-fontawesome": "^0.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "foundation-sites": "^6.6.3",
     "ngx-foundation": "^1.0.8",
     "rxjs": "~6.6.0",

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SideMenuService} from "../side-menu/side-menu.service";
 
 @Component({
   selector: 'app-typeracer',
@@ -11,5 +12,4 @@ export class TyperacerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

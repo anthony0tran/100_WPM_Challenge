@@ -1,0 +1,14 @@
+#sideMenuBarsIconContainer {
+  transition: transform 0.6s ease-in-out;
+  width: fit-content;
+}
+
+.MenuBarsIcon:hover {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.activeSideMenu {
+  transform: rotateZ(90deg);
+  transition: transform 0.6s ease-in-out;
+}
