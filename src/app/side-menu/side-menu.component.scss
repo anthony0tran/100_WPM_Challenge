@@ -37,7 +37,13 @@
   transition: width 0.3s ease-in-out;
 }
 
-.routerLinkActive, .sideMenuItem:hover{
+.sideMenuItem:hover {
+  background-color: var(--quaternary-color);
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.routerLinkActive {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   font-weight: bold;

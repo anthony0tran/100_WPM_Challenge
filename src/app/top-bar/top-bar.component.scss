@@ -1,3 +1,4 @@
+// _settings.scss contains settings for the foundation components. set the background-color there when the file works...
 .top-bar {
   padding-left: 12px;
   padding-right: 12px;
@@ -22,4 +23,26 @@
 .activeSideMenu{
   transform: scale(1.4) rotateZ(90deg);
   transition: transform 0.3s ease-in-out;
+}
+
+.topBarContent {
+  width: 100%;
+  display: flex;
+}
+
+.topBarContent .topBarCenterLogo{
+  flex: 1 0 auto;
+}
+
+.topBarCenterLogo>span {
+  color: var(--secondary-color);
+  font-family: 'Oxygen', sans-serif;
+  font-weight: bold;
+}
+
+// Don't show the logo when the screen width is lower than 640px.
+@media only screen and (max-width: 640px) {
+  .topBarCenterLogo {
+    display: none;
+  }
 }
