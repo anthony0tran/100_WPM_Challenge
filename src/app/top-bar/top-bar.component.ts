@@ -25,5 +25,6 @@ export class TopBarComponent implements OnInit {
   rotateMenuIcon() {
     let sideMenuBarsIcon = document.getElementById('sideMenuBarsIconContainer');
     sideMenuBarsIcon.classList.toggle('activeSideMenu');
+    sideMenuBarsIcon.classList.toggle('menuBarsCollapsed');
   }
 }

@@ -3,7 +3,23 @@
 @import '~foundation-sites/scss/foundation';
 @include foundation-everything;
 
-// Change foundation-everything to the specific modules. This decreases the package size.
-
 // Import Angular ngx-foundation Framework Added Styles
 @import "~ngx-foundation/assets/scss/main";
+
+
+
+// Change foundation-everything to the specific modules. This decreases the package size.
+
+// Global color scheme.
+:root {
+  --primary-color: #414141;
+  --secondary-color: #CCDFCB;
+  --tertiary-color: #FF6A5C;
+  --quaternary-color: #056571;
+  --quinary-color: #D1E8E2;
+}
+
+@font-face {
+  font-family: 'Oxygen', sans-serif;
+  src: url("assets/fonts/Oxygen-Regular.ttf") format("truetype");
+}
