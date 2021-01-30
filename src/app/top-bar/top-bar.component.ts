@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { faBars, faKeyboard } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faKeyboard, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import {SideMenuService} from "../side-menu/side-menu.service";
 import {Router} from "@angular/router";
 
@@ -13,7 +13,10 @@ export class TopBarComponent implements OnInit {
   // declaring fontawesome variable.
   faBars = faBars;
   faKeyBoard = faKeyboard;
+  faLaptopCode = faLaptopCode
+
   showKeyBoard = false;
+  showLapTopCode = false;
 
   constructor(private sideMenuService: SideMenuService, private router: Router) { }
 
@@ -35,6 +38,21 @@ export class TopBarComponent implements OnInit {
   checkTopBarIcon() {
     if (this.router.url === '/typeracer') {
       this.showKeyBoard = true;
+    }
+
+    switch(this.router.url) {
+      case '': {
+        this.showLapTopCode = true;
+        break;
+      }
+      case '/typeracer': {
+        this.showKeyBoard = true;
+        break;
+      }
+      default: {
+        this.showLapTopCode = true;
+        break;
+      }
     }
   }
 }

@@ -52,3 +52,15 @@
   display: flex;
   background-color: rgba(0,0,0,0.3);
 }
+
+// span needs to be block to be able to transform.
+.topBarCenterLogoContent>span {
+  display: inline-block;
+  font-weight: bold;
+}
+
+.topBarCenterLogoContent>span:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
