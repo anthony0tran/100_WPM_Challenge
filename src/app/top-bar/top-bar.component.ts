@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import {Component, OnInit} from '@angular/core';
+import { faBars, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import {SideMenuService} from "../side-menu/side-menu.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-top-bar',
@@ -11,10 +12,13 @@ export class TopBarComponent implements OnInit {
 
   // declaring fontawesome variable.
   faBars = faBars;
+  faKeyBoard = faKeyboard;
+  showKeyBoard = false;
 
-  constructor(private sideMenuService: SideMenuService) { }
+  constructor(private sideMenuService: SideMenuService, private router: Router) { }
 
   ngOnInit(): void {
+    this.checkTopBarIcon();
   }
 
   sideMenuClick() {
@@ -26,5 +30,11 @@ export class TopBarComponent implements OnInit {
     let sideMenuBarsIcon = document.getElementById('sideMenuBarsIconContainer');
     sideMenuBarsIcon.classList.toggle('activeSideMenu');
     sideMenuBarsIcon.classList.toggle('menuBarsCollapsed');
+  }
+
+  checkTopBarIcon() {
+    if (this.router.url === '/typeracer') {
+      this.showKeyBoard = true;
+    }
   }
 }
