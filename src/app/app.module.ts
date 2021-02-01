@@ -9,6 +9,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { TopBarComponent } from './top-bar/top-bar.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     BrowserModule,
     AlertModule.forRoot(),
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

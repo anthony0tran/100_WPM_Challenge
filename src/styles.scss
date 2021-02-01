@@ -27,3 +27,8 @@
   font-family: 'Oxygen', sans-serif;
   src: url("assets/fonts/Oxygen-Regular.ttf") format("truetype");
 }
+
+// Content of the view needs to be flex so the side menu can push the content to the left.
+.contentWrapper {
+  display: flex;
+}
