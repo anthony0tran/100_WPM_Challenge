@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TopBarService} from "../top-bar/top-bar.service";
+import {TopBarService} from "../../shared/top-bar/top-bar.service";
 import {Router} from "@angular/router";
 
 @Component({

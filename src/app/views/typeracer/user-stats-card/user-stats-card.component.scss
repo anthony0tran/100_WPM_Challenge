@@ -1,0 +1,37 @@
+* {
+  font-family: 'Oxygen', sans-serif;
+}
+
+.card {
+  min-width: 250px;
+}
+
+.card-divider {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.cardSubTitle {
+  font-size: 1em;
+}
+
+.userStatsContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statsLabels {
+  color: var(--primary-color);
+}
+
+.statsValues {
+  font-weight: bold;
+  color: var(--primary-color);
+}

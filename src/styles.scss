@@ -21,6 +21,11 @@
   --tertiary-color: #FF6A5C;
   --quaternary-color: #056571;
   --quinary-color: #D1E8E2;
+  --global-background-color: #ededed;
+}
+
+body {
+  background-color: var(--global-background-color);
 }
 
 @font-face {

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {User} from "../models/user";
+import {User} from "../../models/user";
 import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TyperacerService {
+
+  // Array containing typeracer usernames of my friends.
+  userList = ['4n2h0ny', 'kutspatiebalk', 'yung_typo', 'moonlightmelody', 'zoeko5', 'min_hd', 'shekster420'];
 
   constructor(private httpclient: HttpClient) { }
 
