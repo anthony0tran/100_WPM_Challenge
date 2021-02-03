@@ -9,8 +9,7 @@
       <div class="topBarCenterLogo">
         <div class="topBarCenterLogoContent">
             <span routerLink="/">4n2h0ny /
-          <fa-icon class="topBarCenterLogo" [icon]="faKeyBoard" *ngIf="showKeyBoard"></fa-icon>
-          <fa-icon class="topBarCenterLogo" [icon]="faLaptopCode" *ngIf="showLapTopCode"></fa-icon>
+          <fa-icon class="topBarCenterLogo" [icon]="this.topBarService.getRouteIcon()"></fa-icon>
           </span>
         </div>
       </div>

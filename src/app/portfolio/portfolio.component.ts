@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {TopBarService} from "../top-bar/top-bar.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-portfolio',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private topBarService: TopBarService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.topBarService.setRouteIcon(this.router.url);
   }
 
 }

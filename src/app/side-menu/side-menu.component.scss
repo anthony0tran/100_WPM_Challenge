@@ -1,3 +1,7 @@
+* {
+  --sideMenuWidth: 250px;
+}
+
 .sideMenu {
   height: 100vh;
   background-color: var(--secondary-color);
@@ -15,6 +19,7 @@
 
 .sideMenuItem {
   width: 100%;
+  min-width: var(--sideMenuWidth);
   text-align: center;
   font-family: 'Oxygen', sans-serif;
   font-size: x-large;
@@ -29,7 +34,7 @@
 }
 
 .active .menuContent {
-  width: 250px;
+  width: var(--sideMenuWidth);
   transition: width 0.3s ease-in-out;
 }
 

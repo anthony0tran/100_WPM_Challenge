@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SideMenuService} from "../side-menu/side-menu.service";
 import {TyperacerService} from "./typeracer.service";
+import {TopBarService} from "../top-bar/top-bar.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-typeracer',
@@ -9,9 +10,14 @@ import {TyperacerService} from "./typeracer.service";
 })
 export class TyperacerComponent implements OnInit {
 
-  constructor(private typeracerService: TyperacerService) { }
+  constructor(private typeracerService: TyperacerService,
+              private topBarService: TopBarService,
+              private router: Router) { }
 
   ngOnInit(): void {
+
+    this.topBarService.setRouteIcon(this.router.url);
+
     this.typeracerService.getUserStats('4n2h0ny').toPromise().then(data =>{
         console.log('retrieved from api: ' + data.id);
       }

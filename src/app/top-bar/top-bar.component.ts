@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { faBars, faKeyboard, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import {SideMenuService} from "../side-menu/side-menu.service";
 import {Router} from "@angular/router";
+import {TopBarService} from "./top-bar.service";
 
 @Component({
   selector: 'app-top-bar',
@@ -18,7 +19,9 @@ export class TopBarComponent implements OnInit {
   showKeyBoard = false;
   showLapTopCode = false;
 
-  constructor(private sideMenuService: SideMenuService, private router: Router) { }
+  constructor(private sideMenuService: SideMenuService,
+              private router: Router,
+              public topBarService: TopBarService) { }
 
   ngOnInit(): void {
     this.checkTopBarIcon();
