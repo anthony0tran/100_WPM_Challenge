@@ -15,7 +15,7 @@ export class TyperacerComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-
+    // Change the icon in the top-bar when the view is initialized
     this.topBarService.setRouteIcon(this.router.url);
 
     this.typeracerService.getUserStats('4n2h0ny').toPromise().then(data =>{

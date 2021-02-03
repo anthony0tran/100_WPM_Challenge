@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { faBars, faKeyboard, faLaptopCode, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faDumbbell, faKeyboard, faLaptopCode, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,9 @@ export class TopBarService {
         break;
       case '/typeracer':
         this.routeIcon = faKeyboard;
+        break;
+      case '/fitness':
+        this.routeIcon = faDumbbell;
         break;
       default:
         this.routeIcon = faLaptopCode;

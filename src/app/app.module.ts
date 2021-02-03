@@ -10,6 +10,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import { TopBarComponent } from './top-bar/top-bar.component';
 import {HttpClientModule} from "@angular/common/http";
+import { FitnessComponent } from './fitness/fitness.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
     PortfolioComponent,
     SideMenuComponent,
     TopBarComponent,
+    FitnessComponent,
   ],
   imports: [
     BrowserModule,
