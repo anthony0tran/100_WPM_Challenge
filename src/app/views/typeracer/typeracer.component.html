@@ -1,11 +1,7 @@
 <div class="typeracerContent contentWrapper">
   <div class="statCardsContainer">
-    <app-user-stats-card></app-user-stats-card>
-    <app-user-stats-card></app-user-stats-card>
-    <app-user-stats-card></app-user-stats-card>
-    <app-user-stats-card></app-user-stats-card>
-    <app-user-stats-card></app-user-stats-card>
-    <app-user-stats-card></app-user-stats-card>
-    <app-user-stats-card></app-user-stats-card>
+    <ng-container *ngFor="let user of this.typeracerService.userList">
+      <app-user-stats-card [userName]="user"></app-user-stats-card>
+    </ng-container>
   </div>
 </div>

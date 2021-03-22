@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
+import { User } from 'src/app/models/user';
+import {TyperacerService} from '../typeracer.service';
 
 @Component({
   selector: 'app-user-stats-card',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserStatsCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private typeracerService: TyperacerService) { }
+
+  @Input() userName: string;
+  user: User;
 
   ngOnInit(): void {
+    this.typeracerService.getUserStats(this.userName).toPromise().then(data => {
+        console.log('retrieved from api: ' + data.id);
+      }
+    );
   }
-
 }

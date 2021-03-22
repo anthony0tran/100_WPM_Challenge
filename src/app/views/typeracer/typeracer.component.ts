@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class TyperacerComponent implements OnInit {
 
-  constructor(private typeracerService: TyperacerService,
+  constructor(public typeracerService: TyperacerService,
               private topBarService: TopBarService,
               private router: Router) { }
 

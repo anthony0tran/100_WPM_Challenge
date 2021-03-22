@@ -21,8 +21,10 @@
     "@angular/router": "~11.1.0",
     "@fortawesome/angular-fontawesome": "^0.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "firebase": "^8.3.0",
     "foundation-sites": "^6.6.3",
     "ngx-foundation": "^1.0.8",
+    "proxy-from-env": "0.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
