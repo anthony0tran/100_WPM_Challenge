@@ -13,8 +13,12 @@
     ],
     "rewrites": [
       {
-        "source": "/proxyWithCorsAnywhere",
-        "function": "index.ts"
+        "source": "/corsAnywhere/**",
+        "function": "proxyWithCorsAnywhere"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
       }
     ]
   }
