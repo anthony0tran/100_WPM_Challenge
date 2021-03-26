@@ -3,7 +3,7 @@
     <div>
       <div style="float: left; display: inline;">
         <h1 class="cardTitle">{{user.id | slice:3}}</h1>
-        <h2 class="cardSubTitle">{{roundToTwoDecimals(user.tstats.recentAvgWpm)}} WPM</h2>
+        <h2 class="cardSubTitle">{{roundToOneDecimal(user.tstats.recentAvgWpm)}} WPM</h2>
       </div>
     </div>
     <span>#x</span>
@@ -19,8 +19,8 @@
         <p>Vehicle</p>
       </div>
       <div class="statsValues">
-        <p>{{roundToTwoDecimals(user.tstats.wpm)}} WPM</p>
-        <p>{{roundToTwoDecimals(user.tstats.bestGameWpm)}} WPM</p>
+        <p>{{roundToOneDecimal(user.tstats.wpm)}} WPM</p>
+        <p>{{roundToOneDecimal(user.tstats.bestGameWpm)}} WPM</p>
         <p>{{user.tstats.cg}}</p>
         <p>{{calculateWinRatio()}}%</p>
         <p>{{getSkillLevel()}}</p>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TyperacerService} from "./typeracer.service";
-import {TopBarService} from "../../shared/top-bar/top-bar.service";
-import {Router} from "@angular/router";
+import {TyperacerService} from './typeracer.service';
+import {TopBarService} from '../../shared/top-bar/top-bar.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-typeracer',
@@ -18,9 +18,11 @@ export class TyperacerComponent implements OnInit {
     // Change the icon in the top-bar when the view is initialized
     this.topBarService.setRouteIcon(this.router.url);
 
-    // this.typeracerService.getUserStats('4n2h0ny').toPromise().then(data =>{
-    //     console.log('retrieved from api: ' + data.id);
-    //   }
-    // );
+    this.typeracerService.userNames.forEach(userName => {
+      this.typeracerService.getUserStats(userName).toPromise().then(data => {
+          this.typeracerService.AddUser(data);
+        }
+      );
+    });
   }
 }

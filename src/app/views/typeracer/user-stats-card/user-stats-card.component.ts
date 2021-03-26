@@ -11,31 +11,41 @@ export class UserStatsCardComponent implements OnInit {
 
   constructor(private typeracerService: TyperacerService) { }
 
-  @Input() userName: string;
-  user: User;
+  @Input() user: User;
   skillLevel = ['Beginner', 'Intermediate', 'Average', 'Pro', 'TypeMaster', 'MegaRacer'];
   avatar: string;
 
   ngOnInit(): void {
-    this.typeracerService.getUserStats(this.userName).toPromise().then(data => {
-        this.user = data;
-
-        // The avatar will be null if the user has not chosen a specific car. A random car will be chosen on init.
-        if (this.user.avatar == null) {
-          this.avatar = this.randomizeAvatar();
-        }
-      }
-    );
+    // The avatar will be null if the user has not chosen a specific car. A random car will be chosen on init.
+    if (this.user.avatar == null) {
+      this.avatar = this.randomizeAvatar();
+    }
   }
 
-  roundToTwoDecimals(value: number): number {
+  /**
+   * Rounds a number to one number after the decimal.
+   *
+   * @param value The number that needs to be rounded
+   * @return The rounded number
+   */
+  roundToOneDecimal(value: number): number {
     return Math.round(value * 10) / 10;
   }
 
+  /**
+   * Calculates the win ratio of this user.
+   *
+   * @return the winrate as a percentage.
+   */
   calculateWinRatio(): number {
     return Math.ceil((this.user.tstats.gamesWon / this.user.tstats.cg) * 100);
   }
 
+  /**
+   * Converts the level of the user to the skill level as shown on typeracer.
+   *
+   * @return the skill level
+   */
   getSkillLevel(): string {
     let skillLevel: string;
 
@@ -63,6 +73,11 @@ export class UserStatsCardComponent implements OnInit {
     return skillLevel;
   }
 
+  /**
+   * Choose a random car if the user has not specified a specific car.
+   *
+   * @return a random gif that corresponds with the typeracer server.
+   */
   randomizeAvatar(): string {
     const randomNumber: number = Math.random() * (12 - 1) + 1;
     return 'beetle' + Math.floor(randomNumber) + '.gif';
