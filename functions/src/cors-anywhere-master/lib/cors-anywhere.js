@@ -39,7 +39,6 @@ function showUsage(help_file, headers, response) {
  * @return {boolean} Whether the requested resource can be accessed.
  */
 function isValidHostName(hostname) {
-  functions.logger.log('hostname: ' + hostname);
   return !!(
     regexp_tld.test(hostname) ||
     net.isIPv4(hostname) ||
@@ -328,8 +327,6 @@ function getHandler(options, proxy) {
 
     var location = parseURL(req.url.slice(14));
 
-    functions.logger.log('location before parsed: ' + req.url.slice(14));
-
     if (corsAnywhere.handleInitialRequest && corsAnywhere.handleInitialRequest(req, res, location)) {
       return;
     }
@@ -358,7 +355,6 @@ function getHandler(options, proxy) {
 
     if (!/^\/https?:/.test(req.url) && !isValidHostName(location.hostname)) {
       // Don't even try to proxy invalid hosts (such as /favicon.ico, /robots.txt)
-      functions.logger.log('host location: ', location);
       res.writeHead(404, 'Invalid host', cors_headers);
       res.end('Invalid host: ' + location.hostname);
       return;

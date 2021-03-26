@@ -1,12 +1,9 @@
-<div class="card">
+<div class="card" *ngIf="user !== undefined">
   <div class="card-divider">
     <div>
       <div style="float: left; display: inline;">
-        <span>car </span>
-      </div>
-      <div style="float: left; display: inline;">
-        <h1 class="cardTitle">Name</h1>
-        <h2 class="cardSubTitle">x WPM</h2>
+        <h1 class="cardTitle">{{user.id | slice:3}}</h1>
+        <h2 class="cardSubTitle">{{roundToTwoDecimals(user.tstats.recentAvgWpm)}} WPM</h2>
       </div>
     </div>
     <span>#x</span>
@@ -19,13 +16,16 @@
         <p>Races Completed</p>
         <p>Win Ratio</p>
         <p>Skill Level</p>
+        <p>Vehicle</p>
       </div>
       <div class="statsValues">
-        <p>x</p>
-        <p>x</p>
-        <p>x</p>
-        <p>x</p>
-        <p>x</p>
+        <p>{{roundToTwoDecimals(user.tstats.wpm)}} WPM</p>
+        <p>{{roundToTwoDecimals(user.tstats.bestGameWpm)}} WPM</p>
+        <p>{{user.tstats.cg}}</p>
+        <p>{{calculateWinRatio()}}%</p>
+        <p>{{getSkillLevel()}}</p>
+        <img src="https://data.typeracer.com/public/images/avatars/{{user.avatar}}" *ngIf="user.avatar !== null">
+        <img src="https://data.typeracer.com/public/images/avatars/{{avatar}}" *ngIf="user.avatar == null">
       </div>
     </div>
   </div>

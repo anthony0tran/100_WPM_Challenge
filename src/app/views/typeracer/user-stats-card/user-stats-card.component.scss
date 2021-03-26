@@ -3,7 +3,7 @@
 }
 
 .card {
-  min-width: 250px;
+  min-width: 280px;
 }
 
 .card-divider {
@@ -11,6 +11,11 @@
   color: var(--secondary-color);
   display: flex;
   justify-content: space-between;
+  padding: 12px;
+}
+
+.card-section {
+  padding: 12px;
 }
 
 .cardTitle {

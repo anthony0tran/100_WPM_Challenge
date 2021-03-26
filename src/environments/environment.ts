@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // This is an open-source CORS proxy necessary to prevent the browser from blocking the http request. (CORS policy warning)
+  proxyUrl: 'https://roadto100wpm.firebaseapp.com/corsAnywhere/'
 };
 
 /*
