@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TyperacerService} from './typeracer.service';
 import {TopBarService} from '../../shared/top-bar/top-bar.service';
 import {Router} from '@angular/router';
@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   templateUrl: './typeracer.component.html',
   styleUrls: ['./typeracer.component.scss']
 })
-export class TyperacerComponent implements OnInit {
+export class TyperacerComponent implements OnInit, OnDestroy {
 
   constructor(public typeracerService: TyperacerService,
               private topBarService: TopBarService,
@@ -24,5 +24,9 @@ export class TyperacerComponent implements OnInit {
         }
       );
     });
+  }
+
+  ngOnDestroy(): void {
+    this.typeracerService.orderedUsers = [];
   }
 }
