@@ -3,7 +3,9 @@
     <div>
       <div style="float: left; display: inline;">
         <h1 class="cardTitle">{{user.id | slice:3}}</h1>
-        <h2 class="cardSubTitle">{{roundToOneDecimal(user.tstats.recentAvgWpm)}} WPM</h2>
+        <h2 data-tooltip tabindex="1" title="Average of the last 10 matches." data-position="bottom" class="cardSubTitle">
+          {{roundToOneDecimal(user.tstats.recentAvgWpm)}} WPM
+        </h2>
       </div>
     </div>
     <div [ngClass]="[rank == 0 ? 'goldRank' : '',

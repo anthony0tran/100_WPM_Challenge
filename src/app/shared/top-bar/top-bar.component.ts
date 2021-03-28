@@ -38,6 +38,7 @@ export class TopBarComponent implements OnInit {
 
   // rotate the menu icon when the side menu is active.
   rotateMenuIcon(): void {
+    console.log('rotateMenuIcon called');
     const sideMenuBarsIcon = document.getElementById('sideMenuBarsIconContainer');
     sideMenuBarsIcon.classList.toggle('activeSideMenu');
     sideMenuBarsIcon.classList.toggle('menuBarsCollapsed');
@@ -62,5 +63,9 @@ export class TopBarComponent implements OnInit {
         break;
       }
     }
+  }
+
+  dropDown(): void {
+    document.getElementById('myDropdown').classList.toggle('show');
   }
 }

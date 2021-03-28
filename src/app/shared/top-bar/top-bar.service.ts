@@ -11,8 +11,8 @@ export class TopBarService {
   constructor() { }
 
   // Change the center icon based on the current route.
-  setRouteIcon(currentRoute: string) {
-    switch(currentRoute) {
+  setRouteIcon(currentRoute: string): void {
+    switch (currentRoute) {
       case '':
         this.routeIcon = faLaptopCode;
         break;

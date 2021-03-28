@@ -6,7 +6,17 @@
           <fa-icon id="sideMenuBarsIcon" class="MenuBarsIcon" [icon]="faBars" (click)="sideMenuClick();rotateMenuIcon()"></fa-icon>
         </div>
         <div id="mobileMenuContainer">
-          <fa-icon id="mobileMenuBarsIcon" class="MenuBarsIcon" [icon]="faBars" (click)="sideMenuMobileClick()"></fa-icon>
+<!--          <fa-icon id="mobileMenuBarsIcon" class="MenuBarsIcon" [icon]="faBars" (click)="sideMenuMobileClick()"></fa-icon>-->
+          <div class="dropdown">
+            <button (click)="dropDown()"><fa-icon class="MenuBarsIcon" [icon]="faBars"></fa-icon></button>
+            <div id="myDropdown" class="dropdown-content">
+              <a routerLink="" routerLinkActive="routerLinkActive" class="sideMenuItem" [routerLinkActiveOptions]= "{exact: true}" (click)="dropDown()">Portfolio</a>
+              <a routerLink="/typeracer" routerLinkActive="routerLinkActive" class="sideMenuItem"(click)="dropDown()">Typeracer</a>
+              <a routerLink="/fitness" routerLinkActive="routerLinkActive" class="sideMenuItem" (click)="dropDown()">Fitness planner</a>
+            </div>
+          </div>
+
+
         </div>
       </div>
       <div class="topBarCenterLogo">
@@ -19,3 +29,5 @@
     </div>
   </div>
 </div>
+
+

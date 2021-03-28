@@ -2,6 +2,16 @@
   --sideMenuWidth: 250px;
 }
 
+@media only screen and (max-width: 570px) {
+  .sideMenu {
+    display: none;
+  }
+
+  .sideMenuBackground {
+    display: none;
+  }
+}
+
 .sideMenu {
   background-color: var(--secondary-color);
   float: left;

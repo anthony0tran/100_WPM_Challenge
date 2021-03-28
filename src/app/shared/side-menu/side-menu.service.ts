@@ -17,7 +17,7 @@ export class SideMenuService {
     const sideMenuBackground = document.getElementById('sideMenuBackground');
     sideMenuBackground.classList.toggle('active');
 
-    const globalContainer = document.getElementById('mainContentContainer');
-    globalContainer.classList.toggle('sideMenuActive');
+    // const globalContainer = document.getElementById('mainContentContainer');
+    // globalContainer.classList.toggle('sideMenuActive');
   }
 }

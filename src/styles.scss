@@ -14,14 +14,17 @@
 
 // Change foundation-everything to the specific modules. This decreases the package size.
 
-// Global color scheme.
 :root {
+  // Global color scheme.
   --primary-color: #414141;
   --secondary-color: #CCDFCB;
   --tertiary-color: #FF6A5C;
   --quaternary-color: #056571;
   --quinary-color: #D1E8E2;
   --global-background-color: #ededed;
+
+  // max-width that shows the mobile menu.
+  --max-width-mobile-menu: 570px;
 }
 
 body {

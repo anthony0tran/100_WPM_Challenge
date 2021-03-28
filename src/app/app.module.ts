@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { AlertModule } from "ngx-foundation";
+import {AlertModule, BsDropdownModule} from "ngx-foundation";
 import { AppRoutingModule } from './app-routing.module';
 import { TyperacerComponent } from './views/typeracer/typeracer.component';
 import { PortfolioComponent } from './views/portfolio/portfolio.component';
@@ -30,7 +30,8 @@ import { UserChartsComponent } from './views/typeracer/user-charts/user-charts.c
     AlertModule.forRoot(),
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
