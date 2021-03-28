@@ -12,6 +12,7 @@ import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import {HttpClientModule} from "@angular/common/http";
 import { FitnessComponent } from './views/fitness/fitness.component';
 import { UserStatsCardComponent } from './views/typeracer/user-stats-card/user-stats-card.component';
+import { UserChartsComponent } from './views/typeracer/user-charts/user-charts.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UserStatsCardComponent } from './views/typeracer/user-stats-card/user-s
     TopBarComponent,
     FitnessComponent,
     UserStatsCardComponent,
+    UserChartsComponent,
   ],
   imports: [
     BrowserModule,

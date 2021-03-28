@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { faBars, faKeyboard, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
-import {SideMenuService} from "../side-menu/side-menu.service";
-import {Router} from "@angular/router";
-import {TopBarService} from "./top-bar.service";
+import {SideMenuService} from '../side-menu/side-menu.service';
+import {Router} from '@angular/router';
+import {TopBarService} from './top-bar.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -14,7 +14,7 @@ export class TopBarComponent implements OnInit {
   // declaring fontawesome variable.
   faBars = faBars;
   faKeyBoard = faKeyboard;
-  faLaptopCode = faLaptopCode
+  faLaptopCode = faLaptopCode;
 
   showKeyBoard = false;
   showLapTopCode = false;
@@ -27,23 +27,28 @@ export class TopBarComponent implements OnInit {
     this.checkTopBarIcon();
   }
 
-  sideMenuClick() {
+  sideMenuClick(): void {
     this.sideMenuService.collapseSideMenu();
   }
 
+  sideMenuMobileClick(): void {
+    // TODO: implement menu for mobile.
+    alert('Mobile menu needs to be implemented');
+  }
+
   // rotate the menu icon when the side menu is active.
-  rotateMenuIcon() {
-    let sideMenuBarsIcon = document.getElementById('sideMenuBarsIconContainer');
+  rotateMenuIcon(): void {
+    const sideMenuBarsIcon = document.getElementById('sideMenuBarsIconContainer');
     sideMenuBarsIcon.classList.toggle('activeSideMenu');
     sideMenuBarsIcon.classList.toggle('menuBarsCollapsed');
   }
 
-  checkTopBarIcon() {
+  checkTopBarIcon(): void {
     if (this.router.url === '/typeracer') {
       this.showKeyBoard = true;
     }
 
-    switch(this.router.url) {
+    switch (this.router.url) {
       case '': {
         this.showLapTopCode = true;
         break;

@@ -3,11 +3,26 @@
 }
 
 .sideMenu {
-  height: 100vh;
   background-color: var(--secondary-color);
   float: left;
   position: sticky;
   top: 0;
+  z-index: 100;
+}
+
+.sideMenuBackground {
+  background-color: var(--secondary-color);
+  float: left;
+  height: 100vh;
+  position: fixed;
+  z-index: 99;
+}
+
+.sideMenuBackgroundContent {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+  padding-top: 20px;
 }
 
 .collapsible {
@@ -34,6 +49,11 @@
 }
 
 .active .menuContent {
+  width: var(--sideMenuWidth);
+  transition: width 0.3s ease-in-out;
+}
+
+.active .sideMenuBackgroundContent {
   width: var(--sideMenuWidth);
   transition: width 0.3s ease-in-out;
 }

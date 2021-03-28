@@ -12,6 +12,11 @@
   color: var(--secondary-color);
 }
 
+#mobileMenuContainer {
+  display: none;
+  color: var(--secondary-color);
+}
+
 .menuBarsCollapsed:hover {
   transform: scale(1.4);
   transition: transform 0.3s ease-in-out;
@@ -48,7 +53,19 @@
   }
 }
 
+@media only screen and (max-width: 570px) {
+  #sideMenuBarsIconContainer {
+    display: none;
+  }
+
+  #mobileMenuContainer {
+    display: inline-block;
+  }
+}
+
 .topBarContainer {
+  top: 0;
+  position: sticky;
   display: flex;
   background-color: rgba(0,0,0,0.3);
 }

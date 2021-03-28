@@ -1,7 +1,8 @@
-<div class="typeracerContent contentWrapper">
-  <div class="statCardsContainer">
-    <ng-container *ngFor="let user of this.typeracerService.orderedUsers; let i = index">
-      <app-user-stats-card [user]="user" [rank]="i"></app-user-stats-card>
-    </ng-container>
-  </div>
+<div class="statCardsContainer contentContainer">
+  <ng-container *ngFor="let user of this.typeracerService.orderedUsers; let i = index">
+    <app-user-stats-card [user]="user" [rank]="i"></app-user-stats-card>
+  </ng-container>
+</div>
+<div>
+  <app-user-charts></app-user-charts>
 </div>
