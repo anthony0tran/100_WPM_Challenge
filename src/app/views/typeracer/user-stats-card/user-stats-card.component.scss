@@ -40,3 +40,27 @@
   font-weight: bold;
   color: var(--primary-color);
 }
+
+.rankPound {
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.rankNumber {
+  font-size: 2.5rem;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.goldRank {
+  color: gold;
+}
+
+.silverRank {
+  color: silver;
+}
+
+.bronzeRank {
+  color: #cd7f32;
+}

@@ -12,6 +12,7 @@ export class UserStatsCardComponent implements OnInit {
   constructor(private typeracerService: TyperacerService) { }
 
   @Input() user: User;
+  @Input() rank: number;
   skillLevel = ['Beginner', 'Intermediate', 'Average', 'Pro', 'TypeMaster', 'MegaRacer'];
   avatar: string;
 

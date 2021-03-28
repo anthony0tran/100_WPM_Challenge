@@ -10,7 +10,7 @@ import {environment} from '../../../environments/environment';
 export class TyperacerService {
 
   // Array containing typeracer usernames that will be fetched from the api.
-  userNames: string[] = ['4n2h0ny', 'kutspatiebalk', 'yung_typo', 'moonlightmelody', 'zoeko5', 'min_hd', 'shekster420'];
+  userNames: string[] = ['4n2h0ny', 'shekster420', 'zoeko5', 'kutspatiebalk', 'yung_typo', 'moonlightmelody', 'min_hd' ];
 
   // Fetched users ordered by their recentAvgWpm.
   orderedUsers: User[] = [];

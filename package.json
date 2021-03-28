@@ -21,6 +21,7 @@
     "@angular/router": "~11.1.0",
     "@fortawesome/angular-fontawesome": "^0.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "chart.js": "^2.9.4",
     "firebase": "^8.3.0",
     "foundation-sites": "^6.6.3",
     "ngx-foundation": "^1.0.8",

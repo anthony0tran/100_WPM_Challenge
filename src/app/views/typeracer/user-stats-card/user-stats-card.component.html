@@ -6,7 +6,11 @@
         <h2 class="cardSubTitle">{{roundToOneDecimal(user.tstats.recentAvgWpm)}} WPM</h2>
       </div>
     </div>
-    <span>#x</span>
+    <div [ngClass]="[rank == 0 ? 'goldRank' : '',
+                     rank == 1 ? 'silverRank' : '',
+                     rank == 2 ? 'bronzeRank' : '']">
+      <p class="rankPound">#</p><p class="rankNumber">{{rank + 1}}</p>
+    </div>
   </div>
   <div class="card-section">
     <div class="userStatsContainer">
