@@ -92,7 +92,8 @@ export class RecentWpmChartComponent implements OnInit, AfterViewInit {
       borderColor: currentColor,
       data: user.tstats.recentScores,
       label: user.id.slice(3),
-      tension: 0.4
+      tension: 0.4,
+      hidden: false
     };
 
 
@@ -115,5 +116,29 @@ export class RecentWpmChartComponent implements OnInit, AfterViewInit {
     }
 
     return dataSetColor;
+  }
+
+  updateRecentWpmChart(): void {
+    if (this.typeRacerService.selectedUsers.length === 0) {
+      this.recentWPMChart.data.datasets.forEach(dataSet => {
+        dataSet.hidden = false;
+      });
+    } else {
+      this.recentWPMChart.data.datasets.forEach(dataSet => {
+        dataSet.hidden = true;
+      });
+    }
+
+    this.recentWPMChart.data.datasets.forEach(dataSet => {
+      this.typeRacerService.selectedUsers.forEach(selectedUser => {
+        if ('tr:' + dataSet.label === selectedUser.id) {
+          dataSet.hidden = false;
+        }
+      });
+    });
+
+    console.log('updateRecentWpmChart', this.typeRacerService.selectedUsers);
+
+    this.recentWPMChart.update();
   }
 }

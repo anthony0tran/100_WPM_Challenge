@@ -1,4 +1,4 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import { User } from 'src/app/models/user';
 import {TyperacerService} from '../typeracer.service';
 
@@ -7,7 +7,7 @@ import {TyperacerService} from '../typeracer.service';
   templateUrl: './user-stats-card.component.html',
   styleUrls: ['./user-stats-card.component.scss']
 })
-export class UserStatsCardComponent implements OnInit {
+export class UserStatsCardComponent implements OnInit, OnChanges {
 
   constructor(private typeracerService: TyperacerService) { }
 
@@ -16,11 +16,36 @@ export class UserStatsCardComponent implements OnInit {
   skillLevel = ['Beginner', 'Intermediate', 'Average', 'Pro', 'TypeMaster', 'MegaRacer'];
   avatar: string;
 
+  // boolean value that is used to dynamically add the cardActive class the the statCard.
+  isActive = false;
+
+  @Output() cardClicked = new EventEmitter<User>();
+
   ngOnInit(): void {
     // The avatar will be null if the user has not chosen a specific car. A random car will be chosen on init.
     if (this.user.avatar == null) {
       this.avatar = this.randomizeAvatar();
     }
+
+    // EventEmitter is triggered when more than two users are selected. Toggle the isActive of the second selected user.
+    this.typeracerService.thirdUserStatsCardClicked.subscribe(secondSelectedUser => {
+      if (secondSelectedUser === this.user) {
+        this.updateIsActive();
+      }
+    });
+  }
+
+  ngOnChanges(): void {
+    console.log('changed: ', this.user);
+  }
+
+  cardSelected(): void {
+    this.cardClicked.emit(this.user);
+    this.updateIsActive();
+  }
+
+  updateIsActive(): void {
+    this.isActive = !this.isActive;
   }
 
   /**

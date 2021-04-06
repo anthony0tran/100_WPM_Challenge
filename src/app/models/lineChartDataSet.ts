@@ -4,4 +4,5 @@ export class LineChartDataSet {
   borderColor: string;
   backgroundColor: string;
   tension: number;
+  hidden: boolean;
 }

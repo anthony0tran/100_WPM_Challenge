@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {TyperacerService} from './typeracer.service';
 import {TopBarService} from '../../shared/top-bar/top-bar.service';
 import {Router} from '@angular/router';
@@ -18,6 +18,7 @@ export class TyperacerComponent implements OnInit, OnDestroy {
 
   @ViewChild(RecentWpmChartComponent) recentWPMChartComponent: RecentWpmChartComponent;
 
+
   ngOnInit(): void {
     // Change the icon in the top-bar when the view is initialized
     this.topBarService.setRouteIcon(this.router.url);
@@ -33,5 +34,19 @@ export class TyperacerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.typeracerService.orderedUsers = [];
+  }
+
+  onUserStatCardClicked(selectedUser): void {
+    if (this.typeracerService.selectedUsers.length === 2) {
+      this.typeracerService.thirdUserStatsCardClicked.emit(this.typeracerService.selectedUsers[1]);
+    }
+
+    this.typeracerService.addSelectedUser(selectedUser);
+    this.recentWPMChartComponent.updateRecentWpmChart();
+  }
+
+  // Implemented for performance reasons.
+  trackById(index: number, element: any): number {
+    return element.id;
   }
 }

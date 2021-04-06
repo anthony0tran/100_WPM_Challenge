@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../../models/user';
 import {Observable} from 'rxjs';
@@ -15,7 +15,30 @@ export class TyperacerService {
   // Fetched users ordered by their recentAvgWpm.
   orderedUsers: User[] = [];
 
+  selectedUsers: User[] = [];
+
+  // Triggered when more than two users are selected.
+  thirdUserStatsCardClicked = new EventEmitter<any>();
+
   constructor(private httpclient: HttpClient) { }
+
+  addSelectedUser(selectedUser: User): void {
+    // Check if the user already exists in the array.
+    for (let i = 0; i < this.selectedUsers.length; i++) {
+      if (this.selectedUsers[i] === selectedUser) {
+        this.selectedUsers.splice(i, 1);
+        return;
+      }
+    }
+
+    // Only compare two users. If more than 2 users are selected the last one should be popped from the array.
+    if (this.selectedUsers.length < 2) {
+      this.selectedUsers.push(selectedUser);
+    } else {
+      this.selectedUsers.pop();
+      this.selectedUsers.push(selectedUser);
+    }
+  }
 
   /**
    * Does a HTTP call to the proxy server that gets the data from typeracer.

@@ -1,6 +1,6 @@
 <div class="statCardsContainer contentContainer">
-  <ng-container *ngFor="let user of this.typeracerService.orderedUsers; let i = index">
-    <app-user-stats-card [user]="user" [rank]="i"></app-user-stats-card>
+  <ng-container *ngFor="let user of this.typeracerService.orderedUsers; trackBy: trackById let i = index">
+    <app-user-stats-card [user]="user" [rank]="i" (cardClicked)="onUserStatCardClicked($event)"></app-user-stats-card>
   </ng-container>
 </div>
 <div class="chartsContainer">

@@ -6,6 +6,17 @@
   min-width: 280px;
 }
 
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.07);
+  transition: transform 350ms ease-in-out;
+  z-index: 80;
+}
+
+.cardActive {
+  transform: scale(1.07);
+}
+
 .card-divider {
   background-color: var(--primary-color);
   color: var(--secondary-color);

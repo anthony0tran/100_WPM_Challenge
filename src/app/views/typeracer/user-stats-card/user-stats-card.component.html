@@ -1,4 +1,4 @@
-<div class="card" *ngIf="user !== undefined">
+<div class="card" *ngIf="user !== undefined" [ngClass]="{cardActive: isActive}" (click)="cardSelected()">
   <div class="card-divider">
     <div>
       <div style="float: left; display: inline;">
