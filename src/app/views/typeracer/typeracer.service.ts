@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../../models/user';
 import {Observable} from 'rxjs';
@@ -10,17 +10,14 @@ import {environment} from '../../../environments/environment';
 export class TyperacerService {
 
   // Array containing typeracer usernames that will be fetched from the api.
-  userNames: string[] = ['4n2h0ny', 'shekster420', 'zoeko5', 'kutspatiebalk', 'yung_typo', 'moonlightmelody', 'min_hd' ];
+  userNames: string[] = ['4n2h0ny', 'shekster420', 'zoeko5', 'kutspatiebalk', 'yung_typo', 'moonlightmelody', 'min_hd'];
 
   // Fetched users ordered by their recentAvgWpm.
   orderedUsers: User[] = [];
 
   selectedUsers: User[] = [];
 
-  // Triggered when more than two users are selected.
-  thirdUserStatsCardClicked = new EventEmitter<any>();
-
-  constructor(private httpclient: HttpClient) { }
+  constructor(private httpclient: HttpClient) {}
 
   addSelectedUser(selectedUser: User): void {
     // Check if the user already exists in the array.
@@ -31,13 +28,7 @@ export class TyperacerService {
       }
     }
 
-    // Only compare two users. If more than 2 users are selected the last one should be popped from the array.
-    if (this.selectedUsers.length < 2) {
-      this.selectedUsers.push(selectedUser);
-    } else {
-      this.selectedUsers.pop();
-      this.selectedUsers.push(selectedUser);
-    }
+    this.selectedUsers.push(selectedUser);
   }
 
   /**
@@ -46,7 +37,7 @@ export class TyperacerService {
    * @param username The username of the user that will be fetched from the api.
    * @return an Observable that contains an User object.
    */
-  getUserStats(username: string): Observable<User>  {
+  getUserStats(username: string): Observable<User> {
     return this.httpclient.get<User>(environment.proxyUrl + 'https://data.typeracer.com/users?id=tr:' + username + '&universe=play');
   }
 

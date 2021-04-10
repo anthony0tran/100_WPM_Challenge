@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
 import { User } from 'src/app/models/user';
-import {TyperacerService} from '../typeracer.service';
 
 @Component({
   selector: 'app-user-stats-card',
@@ -9,7 +8,7 @@ import {TyperacerService} from '../typeracer.service';
 })
 export class UserStatsCardComponent implements OnInit, OnChanges {
 
-  constructor(private typeracerService: TyperacerService) { }
+  constructor() { }
 
   @Input() user: User;
   @Input() rank: number;
@@ -26,13 +25,6 @@ export class UserStatsCardComponent implements OnInit, OnChanges {
     if (this.user.avatar == null) {
       this.avatar = this.randomizeAvatar();
     }
-
-    // EventEmitter is triggered when more than two users are selected. Toggle the isActive of the second selected user.
-    this.typeracerService.thirdUserStatsCardClicked.subscribe(secondSelectedUser => {
-      if (secondSelectedUser === this.user) {
-        this.updateIsActive();
-      }
-    });
   }
 
   ngOnChanges(): void {

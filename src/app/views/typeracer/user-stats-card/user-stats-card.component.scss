@@ -17,6 +17,15 @@
   transform: scale(1.07);
 }
 
+.cardActive .card-divider {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.cardActive>.card-divider>div {
+  color: var(--primary-color);
+}
+
 .card-divider {
   background-color: var(--primary-color);
   color: var(--secondary-color);

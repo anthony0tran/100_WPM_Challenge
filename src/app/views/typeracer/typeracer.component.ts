@@ -37,10 +37,6 @@ export class TyperacerComponent implements OnInit, OnDestroy {
   }
 
   onUserStatCardClicked(selectedUser): void {
-    if (this.typeracerService.selectedUsers.length === 2) {
-      this.typeracerService.thirdUserStatsCardClicked.emit(this.typeracerService.selectedUsers[1]);
-    }
-
     this.typeracerService.addSelectedUser(selectedUser);
     this.recentWPMChartComponent.updateRecentWpmChart();
   }
